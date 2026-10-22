@@ -9,7 +9,7 @@ Pilih jenis konten, isi brief, klik Generate: ChatGPT terbuka dengan knowledge +
        ---
        label: Talking Head
        description: Skrip untuk video bicara langsung ke kamera.
-       color: #2FA37C
+       cover: talkinghead.jpg
        order: 4
        ---
        (tempel knowledge-mu di sini)
@@ -19,7 +19,8 @@ Pilih jenis konten, isi brief, klik Generate: ChatGPT terbuka dengan knowledge +
 Keterangan:
 - `label`: nama yang tampil di tombol pilihan.
 - `description`: penjelasan singkat di bawah nama.
-- `color`: warna aksen (kode hex).
+- `cover`: gambar sampul kartu (opsional). Taruh gambarnya di folder `public/covers/`, lalu tulis nama filenya. Rasio terbaik 16:9. Kalau kosong, sampul dibuat otomatis.
+- `color`: warna sampul otomatis (kode hex, opsional). Default ungu.
 - `order`: urutan tampil (angka kecil di atas). Boleh dihapus.
 - Semua yang ada di bawah garis `---` kedua adalah knowledge.
 
@@ -31,6 +32,18 @@ Keterangan:
 4. Semua file digabung berurutan dan dikirim sekaligus. Menambah knowledge baru = tambah file baru.
 
 Di layar ada info panjang prompt, jadi kamu tahu kalau sudah terlalu panjang.
+
+## Mengubah judul dan nama brand
+Edit `data/_site.md`:
+
+       ---
+       brand: Evegrow.Digital
+       tagline: Content Tools by
+       title: Generator Konten
+       logo: logo.png
+       ---
+
+`logo` opsional (taruh gambarnya di folder `public/`). Kalau kosong, huruf pertama brand dipakai.
 
 ## Format file
 File knowledge boleh `.txt` atau `.md`. Untuk file knowledge di dalam folder, cukup tempel teksnya,
