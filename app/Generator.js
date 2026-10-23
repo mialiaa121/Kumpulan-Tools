@@ -75,8 +75,8 @@ export default function Generator({ contentTypes, site }) {
     const file = new File([type.knowledge], `${slug}-knowledge.txt`, { type: "text/plain" });
     const text = [
       type.instruction,
-      "Knowledge ada di file terlampir. Ikuti file itu sebagai acuan utama.",
-      "## BRIEF DARI USER",
+      "",
+      "",
       buildBrief(type, values),
     ].join("\n\n");
 
