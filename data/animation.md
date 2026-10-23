@@ -3,7 +3,7 @@ label: Animasi AI
 description: Prompt gambar, karakter, dan video untuk animasi buatan AI.
 color: #8B5CF6
 order: 1
-instruction: Ikuti panduan kerja di bawah ini sebagai sistem utama, lalu kerjakan brief dari user.
+instruction:
 ---
 ﻿Master Prompt: EVEGROW (Versi Final Lengkap - Alur Baru, All Visual Styles, Anti-Text, Konsistensi Penuh)
 
