@@ -4,7 +4,7 @@
 export default {
   label: "Animasi AI",
   description: "",
-  cover: "https://cdn.lynkid.my.id/draft-products/15-10-2026/1792029942235_5411413.png?width=630&amp;quality=90&amp;format=webp",
+  cover: "",
   order: 1,
 
   inputs: [
