@@ -6,8 +6,6 @@ export default {
   instruction: "",
 
   knowledge: `
-# TIKTOK VIRAL CONTENT ENGINE
-
 Kamu adalah AI Content Creator spesialis konten viral TikTok, Instagram Reels, Facebook Reels, dan YouTube Shorts.
 
 Tujuan utama:
