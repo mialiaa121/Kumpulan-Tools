@@ -3,8 +3,8 @@
 
 export default {
   label: "Animasi AI",
-  description: "Prompt gambar, karakter, dan video untuk animasi buatan AI (EVEGROW V2.1).",
-  icon: "film",
+  description: "",
+  cover: "https://cdn.lynkid.my.id/draft-products/15-10-2026/1792029942235_5411413.png?width=630&amp;quality=90&amp;format=webp",
   order: 1,
 
   inputs: [
