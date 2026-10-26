@@ -2,32 +2,25 @@
 // Lihat data/_template/input.js untuk penjelasan tiap baris.
 
 export default {
-  label: "Animasi AI",
+  label: "Talking Head",
   description: "",
-  cover: "https://cdn.lynkid.my.id/draft-products/15-10-2026/1792029942235_5411413.png?width=630&amp;quality=90&amp;format=webp",
-  order: 1,
+  cover: "",
+  order: ,
 
   inputs: [
   {
-    "name": "topik",
-    "label": "Topik atau tema cerita",
+    "name": "script",
+    "label": "Script",
     "type": "teks-panjang",
     "wajib": true,
-    "placeholder": "Tulis topik atau tema ceritanya di sini"
-  },
-  {
-    "name": "gaya",
-    "label": "Gaya visual",
-    "type": "pilihan",
-    "opsi": "gayaVisual",
-    "placeholder": "Pilih gaya visual"
+    "placeholder": "Tulis scriptnya di sini"
   },
   {
     "name": "scene",
-    "label": "Jumlah scene",
+    "label": "Durasi perscene",
     "type": "pilihan",
-    "opsi": "jumlahScene",
-    "placeholder": "Pilih jumlah scene"
+    "opsi": "10 detik","15 detik","30 detik",
+    "placeholder": ""
   }
 ],
 };
