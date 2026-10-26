@@ -14,9 +14,13 @@ export default {
   // Penjelasan singkat di halaman brief
   description: "Penjelasan singkat tentang tools ini.",
 
-  // Ikon kartu. Pilihan: film, chat, bulb, person, sparkles, book, mic,
-  // camera, megaphone, heart, star, pencil, play, smile
-  icon: "sparkles",
+  // Gambar sampul kartu (opsional). Taruh gambarnya di folder public/covers/,
+  // lalu tulis nama filenya. Rasio terbaik 16:9. Kalau baris ini tidak ada,
+  // sampul dibuat otomatis dari nama tools.
+  // cover: "nama-gambar.jpg",
+
+  // Warna sampul otomatis (kode hex, opsional). Default ungu.
+  // color: "#4C8DF0",
 
   // Urutan tampil di halaman awal (angka kecil di atas)
   order: 5,
