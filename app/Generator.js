@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icon from "./Icon";
 import { buildBrief, buildPrompt, chatgptUrl } from "../lib/buildPrompt";
 
 const CUSTOM = "__custom__";
@@ -75,8 +76,8 @@ export default function Generator({ contentTypes, site }) {
     const file = new File([type.knowledge], `${slug}-knowledge.txt`, { type: "text/plain" });
     const text = [
       type.instruction,
-      "",
-      "",
+      "Knowledge ada di file terlampir. Ikuti file itu sebagai acuan utama.",
+      "## BRIEF DARI USER",
       buildBrief(type, values),
     ].join("\n\n");
 
@@ -117,16 +118,11 @@ export default function Generator({ contentTypes, site }) {
               {contentTypes.map((t, i) => (
                 <li key={t.id}>
                   <button className="card" onClick={() => choose(t)}>
-                    {t.cover ? (
-                      <span className="cover">
-                        <img src={t.cover} alt="" loading="lazy" />
+                    <span className="tile" style={{ "--tint": t.accent }}>
+                      <span className="tile-icon">
+                        <Icon name={t.icon} size={38} />
                       </span>
-                    ) : (
-                      <span className="cover fallback" style={{ "--tint": t.accent }}>
-                        <span className="cover-label">{t.label}</span>
-                        <span className="cover-brand">{site.brand}</span>
-                      </span>
-                    )}
+                    </span>
                     <span className="card-title">
                       {i + 1}. {t.label}
                     </span>
@@ -181,7 +177,7 @@ export default function Generator({ contentTypes, site }) {
                             value={custom[f.name] ? CUSTOM : values[f.name] || ""}
                             onChange={(e) => pick(f.name, e.target.value)}
                           >
-                            <option value="">Bebas (biar AI yang menentukan)</option>
+                            <option value="">{f.placeholder || `Pilih ${f.label.toLowerCase()}`}</option>
                             {(f.groups || []).map((g, gi) =>
                               g.label ? (
                                 <optgroup key={gi} label={g.label}>
@@ -195,7 +191,7 @@ export default function Generator({ contentTypes, site }) {
                                 ))
                               )
                             )}
-                            <option value={CUSTOM}>Isi sendiri…</option>
+                            {f.allowCustom !== false && <option value={CUSTOM}>Isi sendiri…</option>}
                           </select>
                           {custom[f.name] && (
                             <input
