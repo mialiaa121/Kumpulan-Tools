@@ -25,9 +25,8 @@ export default {
   {
     "name": "target",
     "label": "Target Usia",
-    "type": "pilihan",
-    "opsi": "targetusia",
-    "placeholder": "Pilih Target Usia"
+    "type": "textarea",
+    "placeholder": ""
   }
   {
     "name": "rasio",
