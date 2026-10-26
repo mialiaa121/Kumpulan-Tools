@@ -64,8 +64,7 @@ export default {
     "Cinematic Realism",
     "Hyperrealistic 3D",
     "2D Hand-Drawn",
-    "Miniature Diorama",
-    "isi sendiri"
+    "Miniature Diorama"
   ],
   "jumlahScene": [
     "3 scene",
@@ -78,6 +77,6 @@ export default {
     "10 scene",
     "12 scene",
     "15 scene",
-    "isi sendiri"
+    "20 scene"
   ]
 };
