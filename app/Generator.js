@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Icon from "./Icon";
 import { buildBrief, buildPrompt, chatgptUrl } from "../lib/buildPrompt";
 
 const CUSTOM = "__custom__";
+
 
 export default function Generator({ contentTypes, site }) {
   const [type, setType] = useState(null);
@@ -118,11 +118,16 @@ export default function Generator({ contentTypes, site }) {
               {contentTypes.map((t, i) => (
                 <li key={t.id}>
                   <button className="card" onClick={() => choose(t)}>
-                    <span className="tile" style={{ "--tint": t.accent }}>
-                      <span className="tile-icon">
-                        <Icon name={t.icon} size={38} />
+                    {t.cover ? (
+                      <span className="cover">
+                        <img src={t.cover} alt="" loading="lazy" />
                       </span>
-                    </span>
+                    ) : (
+                      <span className="cover fallback" style={{ "--tint": t.accent || "#8b6ce8" }}>
+                        <span className="cover-label">{t.label}</span>
+                        <span className="cover-brand">{site.brand}</span>
+                      </span>
+                    )}
                     <span className="card-title">
                       {i + 1}. {t.label}
                     </span>
