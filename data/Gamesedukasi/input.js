@@ -15,25 +15,5 @@ export default {
     "wajib": true,
     "placeholder": "Tulis topik atau tema gamenya di sini"
   },
-  {
-    "name": "gaya",
-    "label": "Gaya visual",
-    "type": "pilihan",
-    "opsi": "gayaVisual",
-    "placeholder": "Pilih gaya visual"
-  },
-  {
-    "name": "target",
-    "label": "Target Usia",
-    "type": "textarea",
-    "placeholder": ""
-  }
-  {
-    "name": "rasio",
-    "label": "Format Rasio",
-    "type": "pilihan",
-    "opsi": "rasio",
-    "placeholder": "Pilih Rasio"
-    }
 ],
 };
