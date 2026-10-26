@@ -2,10 +2,10 @@
 // Lihat data/_template/input.js untuk penjelasan tiap baris.
 
 export default {
-  label: "Animasi AI",
+  label: "Narator Animasi",
   description: "",
-  cover: "https://cdn.lynkid.my.id/draft-products/15-10-2026/1792029942235_5411413.png?width=630&amp;quality=90&amp;format=webp",
-  order: 1,
+  cover: "",
+  order: 3,
 
   inputs: [
   {
