@@ -2,18 +2,18 @@
 // Lihat data/_template/input.js untuk penjelasan tiap baris.
 
 export default {
-  label: "Animasi AI",
+  label: "Game Edukasi CANVA AI",
   description: "",
-  cover: "https://cdn.lynkid.my.id/draft-products/15-10-2026/1792029942235_5411413.png?width=630&amp;quality=90&amp;format=webp",
-  order: 1,
+  cover: "",
+  order: 4,
 
   inputs: [
   {
     "name": "topik",
-    "label": "Topik atau tema cerita",
+    "label": "Mau Bikin Apa?",
     "type": "teks-panjang",
     "wajib": true,
-    "placeholder": "Tulis topik atau tema ceritanya di sini"
+    "placeholder": "Tulis topik atau tema gamenya di sini"
   },
   {
     "name": "gaya",
@@ -23,11 +23,18 @@ export default {
     "placeholder": "Pilih gaya visual"
   },
   {
-    "name": "scene",
-    "label": "Jumlah scene",
+    "name": "target",
+    "label": "Target Usia",
     "type": "pilihan",
-    "opsi": "jumlahScene",
-    "placeholder": "Pilih jumlah scene"
+    "opsi": "targetusia",
+    "placeholder": "Pilih Target Usia"
   }
+  {
+    "name": "rasio",
+    "label": "Format Rasio",
+    "type": "pilihan",
+    "opsi": "rasio",
+    "placeholder": "Pilih Rasio"
+    }
 ],
 };
