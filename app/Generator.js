@@ -5,6 +5,26 @@ import { buildBrief, buildPrompt, chatgptUrl } from "../lib/buildPrompt";
 
 const CUSTOM = "__custom__";
 
+// Menyalin teks ke clipboard. Harus dipanggil langsung dari klik dan SEBELUM
+// tab ChatGPT dibuka, karena setelah pindah tab, browser (terutama Android)
+// menolak penyalinan. Mengembalikan true kalau berhasil.
+function copyNow(text) {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;";
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch {
+    return false;
+  }
+}
 
 export default function Generator({ contentTypes, site }) {
   const [type, setType] = useState(null);
@@ -13,15 +33,12 @@ export default function Generator({ contentTypes, site }) {
   const [status, setStatus] = useState("");
   const [canShareFile, setCanShareFile] = useState(false);
 
-  // Menu Bagikan dengan file hanya ada di sebagian HP/browser (bukan iPad).
+  // Tombol file hanya muncul di perangkat/browser yang mendukung berbagi file
+  // (HP dan tablet diperlakukan sama).
   useEffect(() => {
     try {
-      // iPad (termasuk yang menyamar sebagai Mac) hanya memakai tombol Generate.
-      const isIPad =
-        /iPad/.test(navigator.userAgent) ||
-        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
       const test = new File(["x"], "x.txt", { type: "text/plain" });
-      setCanShareFile(!isIPad && Boolean(navigator.canShare && navigator.canShare({ files: [test] })));
+      setCanShareFile(Boolean(navigator.canShare && navigator.canShare({ files: [test] })));
     } catch {
       setCanShareFile(false);
     }
@@ -56,18 +73,20 @@ export default function Generator({ contentTypes, site }) {
 
   const generate = () => {
     const { url, inUrl } = chatgptUrl(prompt);
-    // Buka tab dulu (harus langsung dari klik, kalau tidak diblokir browser).
+    const done = inUrl
+      ? "ChatGPT dibuka dengan prompt terisi."
+      : "Prompt terlalu panjang untuk dikirim lewat link, jadi sudah disalin otomatis. Di ChatGPT, tempel (paste) lalu kirim.";
+
+    // 1) Salin dulu, 2) baru buka ChatGPT (urutan ini penting di Android).
+    if (copyNow(prompt)) {
+      setStatus(done);
+    } else {
+      navigator.clipboard
+        ?.writeText(prompt)
+        .then(() => setStatus(done))
+        .catch(() => setStatus("Gagal menyalin prompt otomatis. Coba tekan Mulai sekali lagi."));
+    }
     window.open(url, "_blank", "noopener");
-    navigator.clipboard
-      ?.writeText(prompt)
-      .then(() =>
-        setStatus(
-          inUrl
-            ? "ChatGPT dibuka dengan prompt terisi."
-            : "Prompt terlalu panjang untuk dikirim lewat link, jadi sudah disalin otomatis. Di ChatGPT, tempel (paste) lalu kirim."
-        )
-      )
-      .catch(() => setStatus("Gagal menyalin prompt otomatis. Coba klik Generate sekali lagi."));
   };
 
   // Knowledge dikirim sebagai file .txt, brief dikirim sebagai teks pesan.
@@ -76,19 +95,19 @@ export default function Generator({ contentTypes, site }) {
     const file = new File([type.knowledge], `${slug}-knowledge.txt`, { type: "text/plain" });
     const text = [
       type.instruction,
-      "Ikuti file terlampir sebagai acuan utama.",
+      "Knowledge ada di file terlampir. Ikuti file itu sebagai acuan utama.",
       "## BRIEF DARI USER",
       buildBrief(type, values),
     ].join("\n\n");
 
     // Cadangan: kalau ChatGPT hanya menerima file, teks pesan tinggal ditempel.
-    navigator.clipboard?.writeText(text).catch(() => {});
+    if (!copyNow(text)) navigator.clipboard?.writeText(text).catch(() => {});
 
     navigator
       .share({ files: [file], text, title: type.label })
       .then(() => setStatus("Kalau brief belum muncul di kolom pesan ChatGPT, tempel (paste). Teksnya sudah disalin."))
       .catch((e) => {
-        if (e?.name !== "AbortError") setStatus("Menu Bagikan gagal dibuka. Pakai tombol Generate.");
+        if (e?.name !== "AbortError") setStatus("Menu Bagikan gagal dibuka. Pakai tombol Mulai.");
       });
   };
 
@@ -216,7 +235,7 @@ export default function Generator({ contentTypes, site }) {
               </div>
 
               <button className="generate" onClick={generate} disabled={missingRequired}>
-                Generate
+                Mulai
               </button>
               {canShareFile && (
                 <button className="generate secondary" onClick={shareAsFile} disabled={missingRequired}>
