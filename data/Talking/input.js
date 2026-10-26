@@ -5,7 +5,7 @@ export default {
   label: "Talking Head",
   description: "",
   cover: "",
-  order: ,
+  order: 3,
 
   inputs: [
   {
