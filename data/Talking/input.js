@@ -19,7 +19,7 @@ export default {
     "name": "scene",
     "label": "Durasi perscene",
     "type": "pilihan",
-    "opsi": "10 detik","15 detik","30 detik",
+    "opsi": "Durasi 1 Scene",
     "placeholder": ""
   }
 ],
