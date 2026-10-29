@@ -125,7 +125,7 @@ export default {
     "Penebusan dosa",
     "Pengorbanan rahasia"
   ],
-  "jenisending"; [
+  "jenisending": [
     "Twist emosional",
     "Ending sedih",
     "Happy ending",
