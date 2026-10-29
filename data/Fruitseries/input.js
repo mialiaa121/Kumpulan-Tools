@@ -5,7 +5,7 @@ export default {
   label: "Series",
   description: "",
   cover: "",
-  order: 1,
+  order: 3,
 
   inputs: [
   {
@@ -50,7 +50,5 @@ export default {
     "opsi": "jenisending",
     "placeholder": "Pilih ending cerita"
   }
-
-
 ],
 };
