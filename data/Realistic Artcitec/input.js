@@ -9,11 +9,11 @@ export default {
 
   inputs: [
   {
-    "name": "topik",
+    "name": "script",
     "label": "Mau Bikin Apa?",
     "type": "teks-panjang",
     "wajib": true,
-    "placeholder": ""
-  },
+    "placeholder": "contoh Buat gambar seorang wanita usia 15 Tahun menggunakan outfit casul sedang berada di Coffe Shop"
+  }
 ],
 };
