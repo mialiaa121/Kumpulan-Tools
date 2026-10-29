@@ -2,9 +2,9 @@
 // Lihat data/_template/input.js untuk penjelasan tiap baris.
 
 export default {
-  label: "Animasi AI",
+  label: "Series",
   description: "",
-  cover: "https://cdn.lynkid.my.id/draft-products/15-10-2026/1792029942235_5411413.png?width=630&amp;quality=90&amp;format=webp",
+  cover: "",
   order: 1,
 
   inputs: [
@@ -13,11 +13,18 @@ export default {
     "label": "Topik atau tema cerita",
     "type": "teks-panjang",
     "wajib": true,
-    "placeholder": "Tulis topik atau tema ceritanya di sini"
+    "placeholder": "Contoh: Buah yang diremehkan ternyata menyimpan rahasia besar"
+  },
+  {
+    "name": "tema",
+    "label": "tema visual karakter",
+    "type": "pilihan",
+    "opsi": "temakarakter",
+    "placeholder": "Pilih tema karakter"
   },
   {
     "name": "gaya",
-    "label": "Gaya visual",
+    "label": "Gaya visual karakter",
     "type": "pilihan",
     "opsi": "gayaVisual",
     "placeholder": "Pilih gaya visual"
@@ -28,6 +35,22 @@ export default {
     "type": "pilihan",
     "opsi": "jumlahScene",
     "placeholder": "Pilih jumlah scene"
+  },
+  {
+    "name": "emosi",
+    "label": "Emosi Utama",
+    "type": "pilihan",
+    "opsi": "emosiutama",
+    "placeholder": "Pilih emosi cerita"
+  },
+  {
+    "name": "ending",
+    "label": "Jenis Ending",
+    "type": "pilihan",
+    "opsi": "jenisending",
+    "placeholder": "Pilih ending cerita"
   }
+
+
 ],
 };
