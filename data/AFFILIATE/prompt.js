@@ -356,5 +356,5 @@ Hanya Foto Produk Sheet yang menjadi referensi. Boleh ada **tangan** (tanpa waja
 - [ ] Unboxing/ASMR/Faceless/Product Showcase: tidak memakai karakter dari character sheet (tangan tanpa wajah boleh).
 - [ ] Alur scene dan gaya hook mengikuti tipe video yang dipilih (bagian 11).
 - [ ] Rasio 9:16 di semua prompt; tidak ada teks overlay, watermark, atau subtitle.
-',
+`,
 };
