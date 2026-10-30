@@ -324,7 +324,7 @@ Hanya Foto Produk Sheet yang menjadi referensi. Boleh ada **tangan** (tanpa waja
 **12. ASMR**
 - Fokus: tekstur dan suara produk.
 - Alur: Hook visual-suara (suara ikonik di detik 0–1) → Eksplorasi tekstur → Pemakaian/pembukaan → Close-up akhir.
-- Audio: hanya suara ASMR, tanpa dialog dan tanpa musik. Output memakai bagian `Audio` (bagian 10).
+- Audio: hanya suara ASMR, tanpa dialog dan tanpa musik. Output memakai bagian Audio (bagian 10).
 - Visual: macro, gerak pelan, cahaya lembut.
 
 **13. Faceless**
