@@ -177,12 +177,12 @@ Durasi **tepat 10 detik**. Wajib format timestamp, menutup 0–10 detik tanpa ce
 8-10 S: adegan
 
 Aturan:
-- Kalimat pembuka: `Vertical 9:16, 10 seconds, shot on iPhone, raw handheld phone footage, starts exactly from the reference image.`
+- Kalimat pembuka: Vertical 9:16, 10 seconds, shot on iPhone, raw handheld phone footage, starts exactly from the reference image.
 - Tiap baris timestamp: **satu aksi utama** + gerakan kamera sederhana + ekspresi. Jangan menumpuk banyak aksi dalam 1 baris.
 - Detik **0–1 adalah visual hook** (lihat bagian 8): harus langsung bergerak atau menarik, bukan intro lambat.
 - Kamera yang dipakai: handheld halus, slow push-in, sedikit tilt, tracking tangan. Hindari orbit cepat dan perpindahan lokasi mendadak.
-- Untuk adegan bicara: `speaks naturally with lip-sync, small natural gestures`.
-- Akhiri dengan kalimat kunci konsistensi (bagian 4.2) dan: `no text overlay, no watermark, no subtitles, no logo changes, no morphing`.
+- Untuk adegan bicara: speaks naturally with lip-sync, small natural gestures.
+- Akhiri dengan kalimat kunci konsistensi (bagian 4.2) dan: no text overlay, no watermark, no subtitles, no logo changes, no morphing.
 - Dialog harus **selesai sebelum detik 10** dengan sedikit jeda di akhir.
 
 ---
