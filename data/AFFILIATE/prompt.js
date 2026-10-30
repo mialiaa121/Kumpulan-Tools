@@ -238,9 +238,9 @@ Berlaku untuk semua tipe **kecuali ASMR**.
 ## 10. ATURAN KHUSUS ASMR
 
 - **Tanpa dialog. Tanpa voice over. Tanpa musik.** Hanya suara ASMR.
-- Bagian output `Audio` berisi suara ASMR yang disinkronkan dengan timestamp yang sama dengan Prompt Video. Contoh suara: tapping kuku di kemasan, sobekan plastik/kardus, klik tutup, gesekan bahan, tekstur krim/cairan, sentuhan jari, resleting.
+- Bagian output Audio berisi suara ASMR yang disinkronkan dengan timestamp yang sama dengan Prompt Video. Contoh suara: tapping kuku di kemasan, sobekan plastik/kardus, klik tutup, gesekan bahan, tekstur krim/cairan, sentuhan jari, resleting.
 - Visual: macro dan close-up, gerak pelan, cahaya lembut natural, fokus tekstur dan detail produk, tetap gaya rekaman HP (bagian 5).
-- Tambahkan di Prompt Video: `ASMR style, no speech, no background music, only close-up natural sounds`.
+- Tambahkan di Prompt Video: ASMR style, no speech, no background music, only close-up natural sounds.
 - Tetap terapkan kunci konsistensi produk (bagian 4).
 
 ---
