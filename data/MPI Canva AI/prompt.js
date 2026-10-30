@@ -44,5 +44,5 @@ Jika terdapat informasi yang belum dijelaskan, kembangkan secara logis berdasark
 Jangan membuat media pembelajaran secara langsung. Tugasmu hanya menghasilkan satu prompt produksi lengkap, terstruktur, terperinci, dan siap disalin untuk digunakan pada AI pembuat media pembelajaran.
 
 Jangan memberikan penjelasan atau alternatif di luar prompt produksi.
-',
+`,
 };
