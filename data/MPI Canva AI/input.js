@@ -34,17 +34,17 @@ export default {
     "label": "Struktur Slide",
     "type": "teks-panjang",
     "wajib": true,
-    "placeholder": "Slide 1 : halaman cover dengan judul “sistem ekskresi” 
-Slide 2 : narasi teks dan ajakan untuk belajar sistem ekskresi. 
-Slide 3 : pilihan menu yang terdiri dari : tujuan pembelajaran, materi pembelajaran, video dan kuis. 
-Slide 4 : tujuan pembelajaran 
-Slide 5 : materi pembelajaran meliputi : pengertian sistem ekskresi 
-Slide 6 : organ-organ sistem ekskresi (ginjal) 
-Slide 7 : organ-organ sistem ekskresi (kulit) 
-Slide 8 : organ-organ sistem ekskresi (paru-paru) 
-Slide 9 : organ-organ sistem ekskresi (hati) 
-Slide 10 : halaman untuk video pembelajaran. 
-Slide 11 : halaman untuk kuis"
+    "placeholder": "Slide 1 : halaman cover dengan judul.
+      Slide 2 : narasi teks dan ajakan untuk belajar 
+      Slide 3 : pilihan menu yang terdiri dari tujuan pembelajaran, materi pembelajaran, video dan kuis. 
+      Slide 4 : tujuan pembelajaran.
+      Slide 5 : materi pembelajaran meliputi pengertian sistem ekskresi 
+      Slide 6 : organ-organ sistem ekskresi (ginjal) 
+      Slide 7 : organ-organ sistem ekskresi (kulit) 
+      Slide 8 : organ-organ sistem ekskresi (paru-paru) 
+      Slide 9 : organ-organ sistem ekskresi (hati) 
+      Slide 10 : halaman untuk video pembelajaran. 
+      Slide 11 : halaman untuk kuis."
   },
   {
     "name": "gaya",
