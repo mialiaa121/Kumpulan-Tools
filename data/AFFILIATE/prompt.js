@@ -6,8 +6,6 @@ export default {
   instruction: "",
 
   knowledge: `
-  # MASTER KNOWLEDGE PROMPT — AFFILIATE VIDEO GENERATOR (v2)
-
 ## 0. PRIORITAS UTAMA (URUTAN MENENTUKAN)
 
 1. **Terlihat 100% direkam dari smartphone**, bukan hasil AI.
@@ -57,7 +55,7 @@ isi prompt dengan timestamp berapa didalam code block
 
 Dialog ;
 - Tanpa pembuka, penutup, atau penjelasan di luar struktur.
-- **ASMR**: bagian Dialog diganti `Audio` (hanya deskripsi suara ASMR, tanpa dialog, tanpa musik).
+- **ASMR**: bagian Dialog diganti Audio(hanya deskripsi suara ASMR, tanpa dialog, tanpa musik).
 - Prompt Image dan Prompt Video dalam **bahasa Inggris**. Dialog dalam **bahasa Indonesia**.
 
 ---
