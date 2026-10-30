@@ -299,6 +299,6 @@ Pastikan setiap slide merupakan bagian dari satu kesatuan games edukatif yang me
 
 Jangan mengubah ketentuan user secara sepihak. Jika terdapat bagian yang belum ditentukan, gunakan keputusan kreatif terbaik yang sesuai dengan tema dan target usia.
 
-**HASIL AKHIR: 12 PROMPT VISUAL GAMES EDUKATIF ANAK YANG LENGKAP, PROFESIONAL, KONSISTEN, DAN SIAP DIGUNAKAN PADA AI IMAGE GENERATOR.**
-',
+HASIL AKHIR: 12 PROMPT VISUAL GAMES EDUKATIF ANAK YANG LENGKAP, PROFESIONAL, KONSISTEN, DAN SIAP DIGUNAKAN PADA AI IMAGE GENERATOR.
+`,
 };
