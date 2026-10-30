@@ -27,4 +27,5 @@ export default {
     "ASMR: hanya suara ASMR, tanpa dialog dan tanpa musik.",
     "Faceless: voice over, visual tangan dan produk.",
     "Product Showcase: visual produk di berbagai angle, dengan narasi singkat."
+  ]
 };
