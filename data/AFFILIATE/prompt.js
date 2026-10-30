@@ -132,13 +132,13 @@ Latar harus terlihat seperti **ruangan nyata yang benar-benar dipakai orang**, b
 - **Kontinuitas lokasi antar scene**: ruangan, posisi benda, dan arah cahaya sama. Jika kamera berpindah sudut, benda yang sama harus tetap ada di tempat yang sama.
 - **Sesuaikan dengan produk dan target audiens**: skincare di kamar atau kamar mandi, makanan di dapur atau meja makan, gadget di meja kerja, fashion di depan cermin atau kamar.
 
-Tuliskan lokasi dan benda latar secara **konkret** di Prompt Image dan Prompt Video, contoh: `cluttered bedside table with phone charger cable and a half-empty water bottle, plain white painted wall with slight scuffs, daylight from a window on the left`.
+Tuliskan lokasi dan benda latar secara **konkret** di Prompt Image dan Prompt Video, contoh: cluttered bedside table with phone charger cable and a half-empty water bottle, plain white painted wall with slight scuffs, daylight from a window on the left.
 
 ### 5.3 Dilarang dipakai di prompt (memicu tampilan AI)
 
-`cinematic`, `8k`, `4k`, `ultra HD`, `hyper-detailed`, `masterpiece`, `professional studio lighting`, `dramatic lighting`, `bokeh`, `perfect skin`, `flawless`, `glossy`, `beautiful`, `stunning`, `epic`, `unreal`, `render`, `illustration`, `CGI`, gerakan kamera drone/crane/gimbal sempurna.
+cinematic, 8k, 4k, ultra HD, hyper-detailed, masterpiece, professional studio lighting, dramatic lighting, bokeh, perfect skin, flawless, glossy, beautiful, stunning, epic, unreal, render, illustration, CGI, gerakan kamera drone/crane/gimbal sempurna.
 
-Gunakan kata-kata kasual dan fisik: `phone footage`, `raw`, `candid`, `natural`, `unposed`, `casual`, `slightly shaky`.
+Gunakan kata-kata kasual dan fisik: phone footage, raw, candid, natural, unposed, casual, slightly shaky.
 
 ### 5.4 Realisme gerak dan suara (video)
 
@@ -170,14 +170,11 @@ Contoh bentuk (bukan untuk disalin):
 ## 7. ATURAN PROMPT VIDEO (TIMESTAMP, 10 DETIK PER SCENE)
 
 Durasi **tepat 10 detik**. Wajib format timestamp, menutup 0–10 detik tanpa celah:
-
-```
-0-1 S: [adegan]
-2-3 S: [adegan]
-4-5 S: [adegan]
-6-7 S: [adegan]
-8-10 S: [adegan]
-```
+0-1 S: adegan
+2-3 S: adegan
+4-5 S: adegan
+6-7 S: adegan
+8-10 S: adegan
 
 Aturan:
 - Kalimat pembuka: `Vertical 9:16, 10 seconds, shot on iPhone, raw handheld phone footage, starts exactly from the reference image.`
@@ -355,9 +352,9 @@ Hanya Foto Produk Sheet yang menjadi referensi. Boleh ada **tangan** (tanpa waja
 - [ ] Prompt Video memakai timestamp dan total **10 detik**; detik 0–1 adalah visual hook.
 - [ ] Scene 1 punya hook ≤12 kata dengan formula yang jelas; scene terakhir punya CTA spesifik.
 - [ ] Dialog ≤25 kata, natural, tanpa klaim berlebihan, nama produk disebut.
-[ ] ASMR: hanya Audio, tanpa dialog, tanpa musik.
-[ ] Unboxing/ASMR/Faceless/Product Showcase: tidak memakai karakter dari character sheet (tangan tanpa wajah boleh).
-[ ] Alur scene dan gaya hook mengikuti tipe video yang dipilih (bagian 11).
-[ ] Rasio 9:16 di semua prompt; tidak ada teks overlay, watermark, atau subtitle.
+- [ ] ASMR: hanya Audio, tanpa dialog, tanpa musik.
+- [ ] Unboxing/ASMR/Faceless/Product Showcase: tidak memakai karakter dari character sheet (tangan tanpa wajah boleh).
+- [ ] Alur scene dan gaya hook mengikuti tipe video yang dipilih (bagian 11).
+- [ ] Rasio 9:16 di semua prompt; tidak ada teks overlay, watermark, atau subtitle.
 ',
 };
