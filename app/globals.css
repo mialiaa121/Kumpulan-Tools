@@ -153,6 +153,22 @@ textarea { resize: vertical; }
   border-left: 4px solid var(--brand); border-radius: 8px;
 }
 
+.result { margin-top: 22px; }
+.result-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin-bottom: 8px;
+}
+.result-head strong { font-size: 0.95rem; }
+.result-copy {
+  flex: none; padding: 8px 16px; cursor: pointer;
+  font-weight: 700; color: var(--brand-dark);
+  background: var(--surface); border: 1.5px solid var(--brand); border-radius: 12px;
+}
+.result textarea {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem; line-height: 1.45; max-height: 320px;
+}
+
 .preview { margin-top: 22px; }
 .preview summary { cursor: pointer; color: var(--brand-dark); font-weight: 600; }
 .preview pre {

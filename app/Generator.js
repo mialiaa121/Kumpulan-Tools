@@ -32,6 +32,8 @@ export default function Generator({ contentTypes, site }) {
   const [custom, setCustom] = useState({});
   const [status, setStatus] = useState("");
   const [canShareFile, setCanShareFile] = useState(false);
+  const [result, setResult] = useState("");
+  const [copied, setCopied] = useState(false);
 
   // Tombol file hanya muncul di perangkat/browser yang mendukung berbagi file
   // (HP dan tablet diperlakukan sama).
@@ -49,11 +51,13 @@ export default function Generator({ contentTypes, site }) {
     setValues({});
     setCustom({});
     setStatus("");
+    setResult("");
     window.scrollTo({ top: 0 });
   };
   const goHome = () => {
     setType(null);
     setStatus("");
+    setResult("");
   };
 
   const setValue = (name, v) => setValues((prev) => ({ ...prev, [name]: v }));
@@ -72,6 +76,7 @@ export default function Generator({ contentTypes, site }) {
   const prompt = type ? buildPrompt(type, values) : "";
 
   const generate = () => {
+    setResult(prompt);
     const { url, inUrl } = chatgptUrl(prompt);
     const done = inUrl
       ? "ChatGPT dibuka dengan prompt terisi."
@@ -89,8 +94,23 @@ export default function Generator({ contentTypes, site }) {
     window.open(url, "_blank", "noopener");
   };
 
+  // Tombol "Salin lagi" di kotak hasil.
+  const copyAgain = () => {
+    const mark = () => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    };
+    if (copyNow(result)) mark();
+    else
+      navigator.clipboard
+        ?.writeText(result)
+        .then(mark)
+        .catch(() => setStatus("Gagal menyalin. Tekan lama di kotak teks, lalu pilih Salin."));
+  };
+
   // Knowledge dikirim sebagai file .txt, brief dikirim sebagai teks pesan.
   const shareAsFile = () => {
+    setResult(prompt);
     const slug = type.id.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
     const file = new File([type.knowledge], `${slug}-knowledge.txt`, { type: "text/plain" });
     const text = [
@@ -243,6 +263,18 @@ export default function Generator({ contentTypes, site }) {
                 </button>
               )}
               {status && <p className="status" role="status">{status}</p>}
+
+              {result && (
+                <div className="result">
+                  <div className="result-head">
+                    <strong>Hasil prompt (knowledge + brief)</strong>
+                    <button className="result-copy" onClick={copyAgain}>
+                      {copied ? "Tersalin" : "Salin lagi"}
+                    </button>
+                  </div>
+                  <textarea readOnly rows={8} value={result} onFocus={(e) => e.target.select()} />
+                </div>
+              )}
             </div>
           </section>
         )}
