@@ -80,8 +80,7 @@ export default function Generator({ contentTypes, site }) {
     const { url, inUrl } = chatgptUrl(prompt);
     const done = inUrl
       ? "ChatGPT dibuka dengan prompt terisi."
-      : "Prompt terlalu panjang untuk dikirim lewat link, jadi sudah disalin otomatis. Di ChatGPT, tempel (paste) lalu kirim.";
-
+      : ""
     // 1) Salin dulu, 2) baru buka ChatGPT (urutan ini penting di Android).
     if (copyNow(prompt)) {
       setStatus(done);
@@ -94,7 +93,7 @@ export default function Generator({ contentTypes, site }) {
     window.open(url, "_blank", "noopener");
   };
 
-  // Tombol "Salin lagi" di kotak hasil.
+  // Tombol "Salin" di kotak hasil.
   const copyAgain = () => {
     const mark = () => {
       setCopied(true);
