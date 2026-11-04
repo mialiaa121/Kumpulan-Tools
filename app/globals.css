@@ -39,11 +39,9 @@ button {
   display: flex;
   align-items: center;
   gap: 14px;
-
   background: none;
   border: 0;
   padding: 0;
-
   cursor: pointer;
   text-align: left;
 }
@@ -51,20 +49,14 @@ button {
 .logo {
   width: 52px;
   height: 52px;
-
   border-radius: 16px;
   flex: none;
 
   display: grid;
   place-items: center;
-
   overflow: hidden;
 
-  background: linear-gradient(
-    145deg,
-    #d9ccff,
-    #b9a3f5
-  );
+  background: linear-gradient(145deg, #d9ccff, #b9a3f5);
 
   color: #fff;
   font-weight: 800;
@@ -103,27 +95,21 @@ button {
 .wrap {
   width: 100%;
   max-width: 1000px;
-
   margin: 0 auto;
-
   padding: 32px 28px 80px;
 }
 
 .page-title {
   font-size: clamp(2rem, 7vw, 2.8rem);
-
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.15;
-
   color: #ffffff;
-
   margin: 0 0 22px;
 }
 
 .page-title::after {
   content: "";
-
   display: block;
 
   width: 166px;
@@ -142,7 +128,6 @@ button {
 
 .page-sub {
   margin: 0 0 28px;
-
   font-size: 1.15rem;
   color: #a99bb8;
 }
@@ -151,24 +136,19 @@ button {
 
 .grid {
   list-style: none;
+  counter-reset: menu-counter;
 
   margin: 0;
   padding: 0;
 
   display: grid;
-
   grid-template-columns: 1fr;
-
-  gap: 20px;
-
-  counter-reset: menu-counter;
+  gap: 12px;
 }
 
 .grid li {
   display: flex;
-
   min-width: 0;
-
   counter-increment: menu-counter;
 }
 
@@ -178,21 +158,20 @@ button {
   position: relative;
 
   width: 100%;
-  min-height: 120px;
+  min-height: 76px;
 
   display: flex;
-
   flex-direction: row;
   align-items: center;
 
-  gap: 26px;
+  gap: 14px;
 
-  padding: 26px 28px;
+  padding: 14px 16px;
 
   background: #19151f;
 
   border: 1px solid #302633;
-  border-radius: 26px;
+  border-radius: 18px;
 
   overflow: hidden;
 
@@ -209,11 +188,8 @@ button {
 
 .card:hover {
   background: #201927;
-
   border-color: #5b326c;
-
   transform: translateY(-2px);
-
   box-shadow: none;
 }
 
@@ -222,13 +198,12 @@ button {
 .card::before {
   content: counter(menu-counter);
 
-  width: 64px;
-  height: 64px;
+  width: 36px;
+  height: 36px;
 
-  flex: 0 0 64px;
+  flex: 0 0 36px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -242,9 +217,8 @@ button {
 
   color: #ffffff;
 
-  font-size: 1.65rem;
+  font-size: 1rem;
   font-weight: 800;
-
   line-height: 1;
 }
 
@@ -252,20 +226,13 @@ button {
 
 .card-title {
   flex: 1;
-
   min-width: 0;
 
   padding: 0;
   margin: 0;
 
   font-weight: 600;
-
-  font-size: clamp(
-    1.2rem,
-    4vw,
-    1.4rem
-  );
-
+  font-size: 1rem;
   line-height: 1.4;
 
   color: #d6b9ed;
@@ -276,15 +243,14 @@ button {
 .card::after {
   content: "";
 
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
 
-  flex: 0 0 48px;
+  flex: 0 0 30px;
 
   display: block;
 
   border: 1px solid #403448;
-
   border-radius: 50%;
 
   background-color: transparent;
@@ -293,7 +259,7 @@ button {
 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 22px;
+  background-size: 16px;
 
   transition:
     background-color 0.2s ease,
@@ -302,13 +268,7 @@ button {
 
 .card:hover::after {
   border-color: #8e42b2;
-
-  background-color: rgba(
-    192,
-    43,
-    232,
-    0.08
-  );
+  background-color: rgba(192, 43, 232, 0.08);
 }
 
 /* ---------- Cover ---------- */
@@ -333,15 +293,11 @@ button {
 
 .back {
   background: none;
-
   border: 0;
-
   padding: 0;
-
   margin-bottom: 18px;
 
   color: #c783ee;
-
   font-weight: 600;
 
   cursor: pointer;
@@ -359,7 +315,6 @@ button {
   background: #19151f;
 
   border: 1px solid #302633;
-
   border-radius: 24px;
 
   padding: 24px 20px;
@@ -371,27 +326,21 @@ button {
 
 .form {
   display: grid;
-
   gap: 18px;
-
   margin-bottom: 24px;
 }
 
 .field {
   display: grid;
-
   gap: 6px;
 
   font-weight: 600;
-
   color: #ffffff;
 }
 
 .field em {
   font-style: normal;
-
   font-weight: 400;
-
   color: #a99bb8;
 }
 
@@ -399,19 +348,16 @@ input,
 textarea,
 select {
   font: inherit;
-
   font-weight: 400;
 
   color: #ffffff;
 
   padding: 13px 15px;
-
   width: 100%;
 
   background: #100c15;
 
   border: 1px solid #392b43;
-
   border-radius: 14px;
 }
 
@@ -428,7 +374,6 @@ textarea {
 
 .generate {
   width: 100%;
-
   padding: 16px;
 
   cursor: pointer;
@@ -445,22 +390,15 @@ textarea {
   );
 
   border: 0;
-
   border-radius: 16px;
 
-  box-shadow: 0 8px 20px rgba(
-    192,
-    43,
-    232,
-    0.2
-  );
+  box-shadow: 0 8px 20px rgba(192, 43, 232, 0.2);
 }
 
 .generate.secondary {
   margin-top: 12px;
 
   color: #d6b9ed;
-
   background: #19151f;
 
   border: 1.5px solid #8e42b2;
@@ -470,9 +408,7 @@ textarea {
 
 .generate:disabled {
   opacity: 0.45;
-
   cursor: not-allowed;
-
   box-shadow: none;
 }
 
@@ -480,27 +416,22 @@ textarea {
 
 .hint {
   color: #a99bb8;
-
   margin: 10px 0 0;
 }
 
 .size {
   color: #a99bb8;
-
   font-size: 0.9rem;
-
   margin: 14px 0 0;
 }
 
 .status {
   margin: 14px 0 0;
-
   padding: 12px 14px;
 
   background: #21152c;
 
   border-left: 4px solid #c02be8;
-
   border-radius: 8px;
 
   color: #e1c7f5;
@@ -514,12 +445,10 @@ textarea {
 
 .result-head {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
   gap: 12px;
-
   margin-bottom: 8px;
 }
 
@@ -529,32 +458,22 @@ textarea {
 
 .result-copy {
   flex: none;
-
   padding: 8px 16px;
 
   cursor: pointer;
-
   font-weight: 700;
 
   color: #d6b9ed;
-
   background: #19151f;
 
   border: 1.5px solid #8e42b2;
-
   border-radius: 12px;
 }
 
 .result textarea {
-  font-family: ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    monospace;
-
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.82rem;
-
   line-height: 1.45;
-
   max-height: 320px;
 }
 
@@ -566,29 +485,23 @@ textarea {
 
 .preview summary {
   cursor: pointer;
-
   color: #c783ee;
-
   font-weight: 600;
 }
 
 .preview pre {
   white-space: pre-wrap;
-
   word-break: break-word;
 
   background: #100c15;
 
   border: 1px solid #302633;
-
   border-radius: 14px;
 
   padding: 14px;
 
   font-size: 0.85rem;
-
   max-height: 320px;
-
   overflow: auto;
 
   color: #d6b9ed;
@@ -598,7 +511,6 @@ textarea {
 
 :focus-visible {
   outline: 3px solid #c02be8;
-
   outline-offset: 2px;
 }
 
@@ -618,37 +530,36 @@ textarea {
   }
 
   .grid {
-    gap: 20px;
+    gap: 12px;
   }
 
   .card {
-    min-height: 120px;
+    min-height: 76px;
 
-    padding: 22px 28px;
+    padding: 14px 16px;
+    gap: 14px;
 
-    gap: 22px;
-
-    border-radius: 26px;
+    border-radius: 18px;
   }
 
   .card::before {
-    width: 64px;
-    height: 64px;
+    width: 36px;
+    height: 36px;
 
-    flex-basis: 64px;
+    flex-basis: 36px;
 
-    font-size: 1.65rem;
+    font-size: 1rem;
   }
 
   .card-title {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .card::after {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
 
-    flex-basis: 48px;
+    flex-basis: 30px;
   }
 }
 
@@ -660,29 +571,25 @@ textarea {
   }
 
   .card {
-    min-height: 130px;
-
-    padding: 28px 32px;
-
-    gap: 28px;
+    min-height: 76px;
+    padding: 14px 16px;
+    gap: 14px;
   }
 
   .card::before {
-    width: 68px;
-    height: 68px;
-
-    flex-basis: 68px;
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
   }
 
   .card-title {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 
   .card::after {
-    width: 52px;
-    height: 52px;
-
-    flex-basis: 52px;
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
   }
 }
 
@@ -694,29 +601,25 @@ textarea {
   }
 
   .card {
-    min-height: 130px;
-
-    padding: 28px 32px;
-
-    gap: 28px;
+    min-height: 76px;
+    padding: 14px 16px;
+    gap: 14px;
   }
 
   .card::before {
-    width: 68px;
-    height: 68px;
-
-    flex-basis: 68px;
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
   }
 
   .card-title {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 
   .card::after {
-    width: 52px;
-    height: 52px;
-
-    flex-basis: 52px;
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
   }
 }
 
@@ -730,4 +633,4 @@ textarea {
   .card:hover {
     transform: none;
   }
-}
+  }
