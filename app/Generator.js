@@ -167,7 +167,7 @@ export default function Generator({ contentTypes, site }) {
                       </span>
                     )}
                     <span className="card-title">
-                      {i + 1}. {t.label}
+                      {t.label}
                     </span>
                   </button>
                 </li>
