@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import { buildBrief, buildPrompt, chatgptUrl } from "../lib/buildPrompt";
 
-const CUSTOM = "__custom__";
-
 // Isi awal kolom (dari `isi:` di input.js), bisa diedit user.
 const initialValues = (t) =>
   Object.fromEntries((t.fields || []).filter((f) => f.initial).map((f) => [f.name, f.initial]));
@@ -33,10 +31,10 @@ function copyNow(text) {
 export default function Generator({ contentTypes, site }) {
   const [type, setType] = useState(null);
   const [values, setValues] = useState({});
-  const [custom, setCustom] = useState({});
   const [status, setStatus] = useState("");
   const [canShareFile, setCanShareFile] = useState(false);
   const [result, setResult] = useState("");
+  const [showErrors, setShowErrors] = useState(false);
   const [copied, setCopied] = useState(false);
 
   // Tombol file hanya muncul di perangkat/browser yang mendukung berbagi file
@@ -53,33 +51,36 @@ export default function Generator({ contentTypes, site }) {
   const choose = (t) => {
     setType(t);
     setValues(initialValues(t));
-    setCustom({});
     setStatus("");
     setResult("");
+    setShowErrors(false);
     window.scrollTo({ top: 0 });
   };
   const goHome = () => {
     setType(null);
     setStatus("");
     setResult("");
+    setShowErrors(false);
   };
 
   const setValue = (name, v) => setValues((prev) => ({ ...prev, [name]: v }));
-  const pick = (name, v) => {
-    if (v === CUSTOM) {
-      setCustom((prev) => ({ ...prev, [name]: true }));
-      setValue(name, "");
-    } else {
-      setCustom((prev) => ({ ...prev, [name]: false }));
-      setValue(name, v);
-    }
-  };
-
   const fields = type?.fields ?? [];
-  const missingRequired = fields.some((f) => f.required && !values[f.name]?.trim());
+  const missing = fields.filter((f) => f.required && !values[f.name]?.trim());
+
+  // Kalau masih ada kolom wajib yang kosong: tandai, geser ke kolom pertama, jangan lanjut.
+  const blocked = () => {
+    if (missing.length === 0) return false;
+    setShowErrors(true);
+    setStatus(`Isi dulu kolom yang wajib: ${missing.map((f) => f.label).join(", ")}.`);
+    const el = document.getElementById(`f-${missing[0].name}`);
+    el?.scrollIntoView({ behavior: "smooth", block: "center" });
+    el?.focus({ preventScroll: true });
+    return true;
+  };
   const prompt = type ? buildPrompt(type, values) : "";
 
   const generate = () => {
+    if (blocked()) return;
     setResult(prompt);
     const { url, inUrl } = chatgptUrl(prompt);
     const done = inUrl
@@ -114,6 +115,7 @@ export default function Generator({ contentTypes, site }) {
 
   // Knowledge dikirim sebagai file .txt, brief dikirim sebagai teks pesan.
   const shareAsFile = () => {
+    if (blocked()) return;
     setResult(prompt);
     const slug = type.id.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
     const file = new File([type.knowledge], `${slug}-knowledge.txt`, { type: "text/plain" });
@@ -191,11 +193,15 @@ export default function Generator({ contentTypes, site }) {
                 {fields.map((f) => {
                   const id = `f-${f.name}`;
                   return (
-                    <div key={f.name} className="field">
+                    <div
+                      key={f.name}
+                      className={`field${showErrors && missing.includes(f) ? " invalid" : ""}`}
+                    >
                       <label htmlFor={id}>
                         {f.label}
                         {f.required && <em> (wajib)</em>}
                       </label>
+                      {showErrors && missing.includes(f) && <small className="error">Kolom ini wajib diisi</small>}
 
                       {f.type === "textarea" && (
                         <textarea
@@ -221,8 +227,8 @@ export default function Generator({ contentTypes, site }) {
                         <>
                           <select
                             id={id}
-                            value={custom[f.name] ? CUSTOM : values[f.name] || ""}
-                            onChange={(e) => pick(f.name, e.target.value)}
+                            value={(f.groups || []).some((g) => g.items.includes(values[f.name])) ? values[f.name] : ""}
+                            onChange={(e) => setValue(f.name, e.target.value)}
                           >
                             <option value="">{f.placeholder || `Pilih ${f.label.toLowerCase()}`}</option>
                             {(f.groups || []).map((g, gi) =>
@@ -238,13 +244,12 @@ export default function Generator({ contentTypes, site }) {
                                 ))
                               )
                             )}
-                            {f.allowCustom !== false && <option value={CUSTOM}>Isi sendiri…</option>}
                           </select>
-                          {custom[f.name] && (
-                            <input
-                              type="text"
-                              autoFocus
-                              aria-label={`${f.label} (isi sendiri)`}
+                          {/* Pilihan di atas mengisi kotak ini. Teksnya bisa diedit atau ditulis sendiri. */}
+                          {f.allowCustom !== false && (
+                            <textarea
+                              rows={f.rows || 2}
+                              aria-label={`${f.label} (bisa diedit)`}
                               placeholder={f.customPlaceholder}
                               value={values[f.name] || ""}
                               onChange={(e) => setValue(f.name, e.target.value)}
@@ -257,11 +262,11 @@ export default function Generator({ contentTypes, site }) {
                 })}
               </div>
 
-              <button className="generate" onClick={generate} disabled={missingRequired}>
+              <button className="generate" onClick={generate}>
                 Mulai
               </button>
               {canShareFile && (
-                <button className="generate secondary" onClick={shareAsFile} disabled={missingRequired}>
+                <button className="generate secondary" onClick={shareAsFile}>
                   Kirim sebagai file
                 </button>
               )}
@@ -284,4 +289,5 @@ export default function Generator({ contentTypes, site }) {
       </main>
     </>
   );
-}
+                                }
+                      
