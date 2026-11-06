@@ -5,6 +5,10 @@ import { buildBrief, buildPrompt, chatgptUrl } from "../lib/buildPrompt";
 
 const CUSTOM = "__custom__";
 
+// Isi awal kolom (dari `isi:` di input.js), bisa diedit user.
+const initialValues = (t) =>
+  Object.fromEntries((t.fields || []).filter((f) => f.initial).map((f) => [f.name, f.initial]));
+
 // Menyalin teks ke clipboard. Harus dipanggil langsung dari klik dan SEBELUM
 // tab ChatGPT dibuka, karena setelah pindah tab, browser (terutama Android)
 // menolak penyalinan. Mengembalikan true kalau berhasil.
@@ -48,7 +52,7 @@ export default function Generator({ contentTypes, site }) {
 
   const choose = (t) => {
     setType(t);
-    setValues({});
+    setValues(initialValues(t));
     setCustom({});
     setStatus("");
     setResult("");
@@ -80,7 +84,8 @@ export default function Generator({ contentTypes, site }) {
     const { url, inUrl } = chatgptUrl(prompt);
     const done = inUrl
       ? "ChatGPT dibuka dengan prompt terisi."
-      : ""
+      : "Prompt terlalu panjang untuk dikirim lewat link, jadi sudah disalin otomatis. Di ChatGPT, tempel (paste) lalu kirim.";
+
     // 1) Salin dulu, 2) baru buka ChatGPT (urutan ini penting di Android).
     if (copyNow(prompt)) {
       setStatus(done);
@@ -93,7 +98,7 @@ export default function Generator({ contentTypes, site }) {
     window.open(url, "_blank", "noopener");
   };
 
-  // Tombol "Salin" di kotak hasil.
+  // Tombol "Salin lagi" di kotak hasil.
   const copyAgain = () => {
     const mark = () => {
       setCopied(true);
@@ -104,7 +109,7 @@ export default function Generator({ contentTypes, site }) {
       navigator.clipboard
         ?.writeText(result)
         .then(mark)
-        .catch(() => setStatus("Gagal menyalin. Tekan lama di kotak teks, lalu pilih Salin."));
+        .catch(() => setStatus("Gagal menyalin. Tekan lama di kotak teks, pilih Pilih semua, lalu Salin."));
   };
 
   // Knowledge dikirim sebagai file .txt, brief dikirim sebagai teks pesan.
@@ -167,7 +172,7 @@ export default function Generator({ contentTypes, site }) {
                       </span>
                     )}
                     <span className="card-title">
-                      {t.label}
+                      {i + 1}. {t.label}
                     </span>
                   </button>
                 </li>
@@ -266,12 +271,12 @@ export default function Generator({ contentTypes, site }) {
               {result && (
                 <div className="result">
                   <div className="result-head">
-                    <strong>Hasil prompt (knowledge + brief)</strong>
+                    <strong>Hasil prompt (boleh diedit)</strong>
                     <button className="result-copy" onClick={copyAgain}>
                       {copied ? "Tersalin" : "Salin lagi"}
                     </button>
                   </div>
-                  <textarea readOnly rows={8} value={result} onFocus={(e) => e.target.select()} />
+                  <textarea rows={8} value={result} onChange={(e) => setResult(e.target.value)} />
                 </div>
               )}
             </div>
