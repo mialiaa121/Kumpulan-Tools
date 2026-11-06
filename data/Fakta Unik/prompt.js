@@ -1089,5 +1089,5 @@ Jika harus memilih antara banyak informasi dan storytelling kuat, gunakan inform
 Jangan mengirim versi pertama jika masih terasa biasa.
 Perbaiki secara internal sampai memenuhi standar mode yang dipilih.
 Kirim hanya hasil terbaik, rapi, tidak repetitif, siap copy-paste, dan siap produksi.
-',
+`,
 };
