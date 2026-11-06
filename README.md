@@ -13,15 +13,18 @@ Pilih jenis konten, isi brief, klik Generate: ChatGPT terbuka dengan knowledge +
 Folder atau file di `data/` yang namanya diawali garis bawah (`_`) tidak tampil di aplikasi.
 
 ## input.js
-- `label`, `description`, `icon`, `order`: tampilan kartu dan urutannya.
+- `label`, `description`, `order`: nama kartu, penjelasan di halaman brief, dan urutan tampil.
+- `cover`: gambar sampul kartu (opsional). Taruh gambarnya di folder `public/covers/`, lalu tulis nama filenya. Rasio terbaik 16:9. Kalau kosong, sampul dibuat otomatis dari nama tools.
+- `color`: warna sampul otomatis, kode hex (opsional). Default ungu.
 - `inputs`: daftar kolom, urutannya = urutan di form. Tiap kolom punya:
   - `label`: tulisan di atas kolom
   - `type`: `teks` (satu baris), `teks-panjang` (kotak besar), atau `pilihan`
   - `wajib: true`: user harus mengisi dulu sebelum bisa klik Generate
   - `opsi`: nama daftar di `opsi.js` (untuk `pilihan`)
+  - `isi`: teks awal yang sudah terisi di kolom dan bisa diedit user (untuk `teks` / `teks-panjang`).
+  - `baris`: tinggi kotak untuk `teks-panjang` (berguna kalau `isi` panjang).
   - `placeholder`: tulisan petunjuk. Untuk `pilihan`, ini jadi tulisan awal di dropdown.
   - `isiSendiri: false`: menyembunyikan pilihan "Isi sendiri…" (default tampil)
-- Ikon yang tersedia: film, chat, bulb, person, sparkles, book, mic, camera, megaphone, heart, star, pencil, play, smile.
 
 ## opsi.js
 Tiap daftar boleh berbentuk daftar biasa `["3 scene", "4 scene"]`, atau berkelompok
