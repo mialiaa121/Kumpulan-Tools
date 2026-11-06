@@ -172,9 +172,7 @@ export default function Generator({ contentTypes, site }) {
                         <span className="cover-brand">{site.brand}</span>
                       </span>
                     )}
-                    <span className="card-title">
-                      {i + 1}. {t.label}
-                    </span>
+                    <span className="card-title">{t.label}</span>
                   </button>
                 </li>
               ))}
