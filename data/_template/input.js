@@ -30,6 +30,10 @@ export default {
   // wajib: true  -> user harus mengisi dulu sebelum bisa klik Generate
   // opsi: nama daftar di opsi.js (hanya untuk type "pilihan")
   // isiSendiri: false -> menyembunyikan pilihan "Isi sendiri…" (default: tampil)
+  // isi: "teks"   -> teks awal yang sudah terisi di kolom dan bisa diedit user
+  //                  (untuk teks / teks-panjang). Beda dengan placeholder yang
+  //                  hanya tulisan abu-abu dan hilang saat user mengetik.
+  // baris: 8      -> tinggi kotak (untuk teks-panjang), berguna kalau isi-nya panjang
   inputs: [
     {
       name: "topik",
