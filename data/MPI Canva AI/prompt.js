@@ -44,5 +44,7 @@ Jika terdapat informasi yang belum dijelaskan, kembangkan secara logis berdasark
 Jangan membuat media pembelajaran secara langsung. Tugasmu hanya menghasilkan satu prompt produksi lengkap, terstruktur, terperinci, dan siap disalin untuk digunakan pada AI pembuat media pembelajaran.
 
 Jangan memberikan penjelasan atau alternatif di luar prompt produksi.
-`,
+
+Setelah semua Slide Selesai. Tanyakan ke user Mau dibuatkan Gambar Master Karakternya atau Upload Master karakter sendiri. jika user pilih buatkan Master Karakter maka buatkan Prompt Master Karakter nya. Setelah itu BUATKAN visual prompt atau Prompt Imagenya yang spesifik dan detail untuk setiap slide, mencakup objek utama, ilustrasi, karakter, komposisi, tata letak, latar belakang, pencahayaan, tekstur, warna, dan elemen dekorasi.Pastikan visual prompt setiap slide berbeda dan sesuai dengan materi yang ditampilkan.
+Prompt Harus siap Copy, Prompt sudah termasuk judul navigasi dan icon yang ada didalam slide tersebut, dan Mempertahankan Karakter 100%. jika user upload Foto Karakternya maka langsung buatkan Prompt Visualnya. setiap Prompt Harus dalam code block.`,
 };
