@@ -4,6 +4,11 @@ import "./globals.css";
 
 const font = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-main" });
 
+export const viewport = {
+  themeColor: "#100c18",
+  colorScheme: "dark",
+};
+
 export function generateMetadata() {
   const site = loadSite();
   return {

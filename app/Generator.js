@@ -36,6 +36,7 @@ export default function Generator({ contentTypes, site }) {
   const [result, setResult] = useState("");
   const [showErrors, setShowErrors] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Tombol file hanya muncul di perangkat/browser yang mendukung berbagi file
   // (HP dan tablet diperlakukan sama).
@@ -124,7 +125,9 @@ export default function Generator({ contentTypes, site }) {
       "Knowledge ada di file terlampir. Ikuti file itu sebagai acuan utama.",
       "## BRIEF DARI USER",
       buildBrief(type, values),
-    ].join("\n\n");
+    ]
+      .filter(Boolean)
+      .join("\n\n");
 
     // Cadangan: kalau ChatGPT hanya menerima file, teks pesan tinggal ditempel.
     if (!copyNow(text)) navigator.clipboard?.writeText(text).catch(() => {});
@@ -140,41 +143,82 @@ export default function Generator({ contentTypes, site }) {
   return (
     <>
       <header className="topbar">
-        <button className="brand" onClick={goHome} aria-label="Kembali ke halaman awal">
+        <button
+          className="brand"
+          onClick={() => {
+            goHome();
+            setMenuOpen(false);
+          }}
+          aria-label="Kembali ke halaman awal"
+        >
           <span className="logo">
             {site.logo ? <img src={site.logo} alt="" /> : site.brand.charAt(0).toUpperCase()}
           </span>
-          <span className="brand-text">
-            {site.tagline && <small>{site.tagline}</small>}
-            <strong>{site.brand}</strong>
-          </span>
+          <span className="brand-name">{site.brand}</span>
         </button>
+
+        <button
+          className="burger"
+          aria-label="Menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        {menuOpen && (
+          <nav className="menu" aria-label="Menu">
+            <button
+              onClick={() => {
+                goHome();
+                setMenuOpen(false);
+              }}
+            >
+              Beranda
+            </button>
+            {contentTypes.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => {
+                  choose(t);
+                  setMenuOpen(false);
+                }}
+              >
+                {t.label}
+              </button>
+            ))}
+          </nav>
+        )}
       </header>
 
       <main className="wrap">
         {!type ? (
           <section aria-labelledby="judul">
+            {site.tagline && <p className="eyebrow">{site.tagline}</p>}
             <h1 id="judul" className="page-title">{site.title}</h1>
-            <p className="page-sub">
-              {contentTypes.length} {site.countLabel}
-            </p>
+            <span className="bar" />
 
-            <ul className="grid">
+            <ul className="list">
               {contentTypes.map((t, i) => (
                 <li key={t.id}>
                   <button className="card" onClick={() => choose(t)}>
-                    {t.cover ? (
-                      <span className="cover">
-                        <img src={t.cover} alt="" loading="lazy" />
-                      </span>
-                    ) : (
-                      <span className="cover fallback" style={{ "--tint": t.accent || "#8b6ce8" }}>
-                        <span className="cover-label">{t.label}</span>
-                        <span className="cover-brand">{site.brand}</span>
-                      </span>
-                    )}
-                    <span className="card-title">
-                      {i + 1}. {t.label}
+                    <span className="num">{i + 1}</span>
+                    <span className="card-title">{t.label}</span>
+                    <span className="go" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M12 5v14M6 13l6 6 6-6" />
+                      </svg>
                     </span>
                   </button>
                 </li>
@@ -187,6 +231,7 @@ export default function Generator({ contentTypes, site }) {
               ← Semua jenis konten
             </button>
             <h1 id="judul" className="page-title">{type.label}</h1>
+            <span className="bar" />
             {type.description && <p className="page-sub">{type.description}</p>}
 
             <div className="panel">
